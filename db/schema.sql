@@ -12,3 +12,26 @@ CREATE TABLE IF NOT EXISTS activity_logs(
     -- Timestamp
     activity_log_created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
+
+
+--Table #3 users table
+CREATE TABLE IF NOT EXISTS users(
+
+    -- Primary key for users table
+    user_id INT AUTO_INCREMENT PRIMARY KEY,
+
+    -- Initial user details
+    user_email varchar (50) UNIQUE NOT NULL,
+    user_username varchar (20) UNIQUE NOT NULL,
+    usser_password varchar (255) NOT NULL,
+    user_role ENUM('admin','manager','user') NOT NULL DEFAULT 'user',
+
+    -- User Created Timestamp default not null
+    user_created_at TIMESTAMP
+        DEFAULT CURRENT_TIMESTAMP,
+
+    -- User updated timestamp
+    user_update_at TIMESTAMP
+        DEFAULT CURRENT_TIMESTAMP
+        ON UPDATE CURRENT_TIMESTAMP
+)
