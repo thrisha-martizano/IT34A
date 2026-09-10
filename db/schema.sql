@@ -3,41 +3,42 @@ CREATE TABLE IF NOT EXISTS activity_logs(
     user_id VARCHAR(255),
     user_email VARCHAR(255),
     activity_log_action VARCHAR(50) NOT NULL,
-    activity_log_status ENUM('success', 'failed') DEFAULT 'SUCCESS',
+    activity_log_status ENUM('success','failed') DEFAULT 'success',
 
     -- Client Parameters
     activity_log_ip_address VARCHAR(45),
     activity_log_user_agent VARCHAR(255),
-
+    
     -- Timestamp
     activity_log_created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
 
+-- Table #3 users tablee
 
---Table #3 users table
-CREATE TABLE IF NOT EXISTS users(
-
-    -- Primary key for users table
+CREATE TABLE IF NOT EXISTS users()
+    -- Primary Key for user table
     user_id INT AUTO_INCREMENT PRIMARY KEY,
 
-    -- Initial user details
-    user_email varchar (50) UNIQUE NOT NULL,
-    user_username varchar (20) UNIQUE NOT NULL,
-    usser_password varchar (255) NOT NULL,
-    user_role ENUM('admin','manager','user') NOT NULL DEFAULT 'user',
 
-    -- User Created Timestamp default not null
-    user_created_at TIMESTAMP
-        DEFAULT CURRENT_TIMESTAMP,
+    -- Initial User Details
+    user_email VARCHAR(50) NOT NULL,
+    user_password VARCHAR(20) NOT NULL,
+    user_password VARCHAR(255) NOT NULL,
+    user_role ENUM('admin', 'manager', 'user') NOT NULL DEFAULT 'user',
 
-    -- User updated timestamp
-    user_update_at TIMESTAMP
-        DEFAULT CURRENT_TIMESTAMP
-        ON UPDATE CURRENT_TIMESTAMP
-);
 
--- Insert Test Users
-INSERT INTO users
+    -- User created timestamp default not null
+    user_created_at TIMESTAMP DEFAULT 
+        CURRENT_TIMESTAMP,
+
+
+    -- user updated timestamp
+    user_updated_at TIMESTAMP
+        DEFAULT CURRENT_TIMESTAMP 
+        ON UPDATE CURRENT_TIMESTAMP;
+
+
+        INSERT INTO users
 (
     user_email,
     user_username,
