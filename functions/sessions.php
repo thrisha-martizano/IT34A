@@ -53,5 +53,4 @@ function endUserSession($pdo){
         'session_id' => $session_id
     ]);
 }
-
 ?>
