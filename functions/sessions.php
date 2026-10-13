@@ -52,5 +52,6 @@ function endUserSession($pdo){
     return $stmt->execute([
         'session_id' => $session_id
     ]);
+    
 }
 ?>
