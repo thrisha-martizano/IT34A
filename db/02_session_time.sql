@@ -1,6 +1,5 @@
 CREATE TABLE user_sessions(
     session_id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
-    
     user_id INT NOT NULL,
 
     session_start DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
